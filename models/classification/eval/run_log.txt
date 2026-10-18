@@ -1,0 +1,119 @@
+05:03:57 | INFO    | ======================================================================
+05:03:57 | INFO    | STAGE 1 — Dataset scan, de-duplication and 70/15/15 split
+05:03:57 | INFO    | ======================================================================
+05:03:57 | INFO    | Dataset root   : /home/claude/SmartSpray/data/datasets/plantvillage_tomato
+05:03:57 | INFO    | Class folders  : ['early_blight', 'healthy', 'late_blight', 'septoria_leaf_spot']
+05:03:57 | INFO    | Image files found (case-insensitive extension match): 5016
+05:03:57 | INFO    |    early_blight          : 800
+05:03:57 | INFO    |    healthy               : 1273
+05:03:57 | INFO    |    late_blight           : 1526
+05:03:57 | INFO    |    septoria_leaf_spot    : 1417
+05:04:06 | INFO    | Unreadable images            : 0
+05:04:06 | INFO    | Exact duplicates removed     : 9
+05:04:06 | INFO    | Cross-class label conflicts  : 0
+05:04:06 | INFO    | Unique usable images         : 5007
+05:04:06 | INFO    | 
+05:04:06 | INFO    | class                   total  train    val   test
+05:04:06 | INFO    | early_blight              800    560    120    120
+05:04:06 | INFO    | healthy                  1269    888    191    190
+05:04:06 | INFO    | late_blight              1521   1064    228    229
+05:04:06 | INFO    | septoria_leaf_spot       1417    992    212    213
+05:04:06 | INFO    | TOTAL                    5007   3504    751    752
+05:04:06 | INFO    | 
+05:04:06 | INFO    | LEAKAGE CHECKS
+05:04:06 | INFO    |    path_overlap_train_validation                   : 0
+05:04:06 | INFO    |    hash_overlap_train_validation                   : 0
+05:04:06 | INFO    |    path_overlap_train_test                         : 0
+05:04:06 | INFO    |    hash_overlap_train_test                         : 0
+05:04:06 | INFO    |    path_overlap_validation_test                    : 0
+05:04:06 | INFO    |    hash_overlap_validation_test                    : 0
+05:04:06 | INFO    |    every_unique_image_in_exactly_one_split         : True
+05:04:06 | INFO    |    dropped_duplicates_absent_from_splits           : True
+05:04:06 | INFO    |    RESULT: PASS — zero overlap
+05:04:06 | INFO    | Split manifest written: models/classification/split_manifest.json
+05:05:27 | INFO    | ======================================================================
+05:05:27 | INFO    | STAGE 2 — Training (validation-only model selection)
+05:05:27 | INFO    | ======================================================================
+05:05:30 | INFO    | Loaded train=3504 validation=751 in 3.0s (test split NOT loaded)
+05:05:31 | INFO    | Train-only augmentation: ['random_flip', 'random_rotation', 'random_translation', 'random_zoom', 'random_brightness']
+05:05:31 | INFO    | Validation pipeline   : cast to float32 only (no augmentation)
+05:05:32 | INFO    | Backbone weights source: /home/claude/SmartSpray/models/pretrained/efficientnetb0_imagenet_notop.weights.h5
+05:05:32 | INFO    | Phase 1: backbone frozen | trainable params=328,964 frozen params=4,049,571 | Adam lr=0.001 | max 20 epochs
+05:07:01 | INFO    |    [select] new best (phase1 epoch 1): val_acc=0.8682 val_loss=0.3390
+05:08:33 | INFO    |    [select] new best (phase1 epoch 2): val_acc=0.8988 val_loss=0.2612
+05:10:05 | INFO    |    [select] new best (phase1 epoch 3): val_acc=0.9041 val_loss=0.2363
+05:13:51 | INFO    |    [select] new best (phase1 epoch 5): val_acc=0.9334 val_loss=0.1945
+05:16:54 | INFO    |    [select] new best (phase1 epoch 7): val_acc=0.9401 val_loss=0.1635
+05:23:45 | INFO    |    [select] new best (phase1 epoch 11): val_acc=0.9427 val_loss=0.1506
+05:26:07 | INFO    |    [select] new best (phase1 epoch 12): val_acc=0.9547 val_loss=0.1381
+05:29:17 | INFO    |    [select] new best (phase1 epoch 14): val_acc=0.9561 val_loss=0.1383
+05:31:08 | INFO    |    [select] new best (phase1 epoch 15): val_acc=0.9574 val_loss=0.1309
+05:37:05 | INFO    |    [select] new best (phase1 epoch 18): val_acc=0.9667 val_loss=0.1142
+05:39:58 | INFO    | Phase 1 done in 34.4 min; best so far: {'best_key': (0.966711, -0.114156), 'phase': 'phase1', 'epoch': 18, 'val_accuracy': 0.9667110443115234, 'val_loss': 0.11415589600801468}
+05:39:58 | INFO    | Phase 2: top 30 backbone layers unfrozen (10 weighted, BatchNorm kept frozen) | trainable params=1,812,324 | Adam lr=1e-05 | max 10 epochs
+05:43:25 | INFO    |    [select] new best (phase2 epoch 2): val_acc=0.9694 val_loss=0.1080
+05:49:39 | INFO    |    [select] new best (phase2 epoch 5): val_acc=0.9734 val_loss=0.0997
+05:57:44 | INFO    |    [select] new best (phase2 epoch 10): val_acc=0.9747 val_loss=0.0985
+05:57:45 | INFO    | SELECTED CHECKPOINT (validation only): {'phase': 'phase2', 'epoch': 10, 'val_accuracy': 0.974700391292572, 'val_loss': 0.09845776110887527}
+05:58:48 | INFO    | Validation acc plain=0.9747 tta=0.9734; NLL plain=0.0985 tta=0.0957 -> use_tta=False
+05:58:48 | INFO    | Temperature (fit on validation) T=0.9879; val NLL 0.0985 -> 0.0984; val ECE 0.0164 -> 0.0163
+05:58:49 | INFO    | Candidate model saved: models/classification/eval/candidate_best.keras (18.4 MB)
+06:00:08 | INFO    | ======================================================================
+06:00:08 | INFO    | STAGE 2b — Phase 3 deeper fine-tune (validation-gated)
+06:00:08 | INFO    | ======================================================================
+06:00:08 | INFO    | Current candidate (validation): {'phase': 'phase2', 'epoch': 10, 'val_accuracy': 0.974700391292572, 'val_loss': 0.09845776110887527}
+06:00:14 | INFO    | Phase 3: unfrozen from block5a_expand_conv (118 layers, 41 weighted, BatchNorm frozen) | trainable params=3,994,028 | Adam lr=0.0001 | max 8 epochs
+06:02:40 | INFO    |    [select] new best (phase3 epoch 1): val_acc=0.9800 val_loss=0.0609
+06:10:45 | INFO    | Validation acc plain=0.9800 tta=0.9814; NLL plain=0.0609 tta=0.0574 -> use_tta=True
+06:10:45 | INFO    | Temperature (fit on validation) T=0.9010; val NLL 0.0574 -> 0.0568; val ECE 0.0091 -> 0.0082
+06:10:47 | INFO    | Phase 3 IMPROVED validation -> new candidate {'phase': 'phase3', 'epoch': 1, 'val_accuracy': 0.9800266027450562, 'val_loss': 0.060918111354112625}
+06:11:34 | INFO    | ======================================================================
+06:11:34 | INFO    | STAGE 3 — Independent TEST evaluation (single pass)
+06:11:34 | INFO    | ======================================================================
+06:11:36 | INFO    | Test images loaded: 752 (untouched until now)
+06:12:57 | INFO    | 
+06:12:57 | INFO    | Total images:            5007  (raw files 5016, 9 exact duplicates removed)
+06:12:57 | INFO    | Training:                3504
+06:12:57 | INFO    | Validation:              751
+06:12:57 | INFO    | Test:                    752
+06:12:57 | INFO    | 
+06:12:57 | INFO    | Test Loss:               0.0546
+06:12:57 | INFO    | Test Accuracy:           0.9734  (97.34%)
+06:12:57 | INFO    | 
+06:12:57 | INFO    | Classification Report:
+06:12:57 | INFO    |                     precision    recall  f1-score   support
+
+      early_blight     0.9244    0.9167    0.9205       120
+           healthy     0.9896    1.0000    0.9948       190
+       late_blight     0.9955    0.9607    0.9778       229
+septoria_leaf_spot     0.9636    0.9953    0.9792       213
+
+          accuracy                         0.9734       752
+         macro avg     0.9683    0.9682    0.9681       752
+      weighted avg     0.9736    0.9734    0.9733       752
+
+06:12:57 | INFO    | Macro F1:                0.9681
+06:12:57 | INFO    | Weighted F1:             0.9733
+06:12:57 | INFO    | 
+06:12:57 | INFO    | Confusion Matrix (rows = true, cols = predicted):
+06:12:57 | INFO    |                         early_blight       healthy   late_blight  septoria_lea
+06:12:57 | INFO    | early_blight                     110             1             1             8
+06:12:57 | INFO    | healthy                            0           190             0             0
+06:12:57 | INFO    | late_blight                        8             1           220             0
+06:12:57 | INFO    | septoria_leaf_spot                 1             0             0           212
+06:12:57 | INFO    | 
+06:12:57 | INFO    | Total test samples:      752
+06:12:57 | INFO    | Correct predictions:     732
+06:12:57 | INFO    | Incorrect predictions:   20
+06:12:57 | INFO    | 
+06:12:57 | INFO    | Production inference mode (chosen on validation): TTA=True, temperature=0.9010
+06:12:57 | INFO    |    accuracy                         : 0.9787
+06:12:57 | INFO    |    ECE raw -> calibrated            : 0.0150 -> 0.0107
+06:12:57 | INFO    |    plants with conf >= 0.60        : 742/752 (98.7%)
+06:12:57 | INFO    |    accuracy on confident plants     : 0.9865
+06:12:57 | INFO    |    flagged uncertain                : 10 (of which wrong: 6)
+06:13:14 | INFO    | ======================================================================
+06:13:14 | INFO    | STAGE 4 — Safe promotion to production
+06:13:14 | INFO    | ======================================================================
+06:13:14 | INFO    | Previous best.keras SHA256 4022beccda7eb18dc6759f8e5ef8d2825dd3ed43f0615721b069e997063c3f2c backed up to best.keras.bak-20260916-061314
+06:13:17 | INFO    | Promoted. New best.keras SHA256 499ceca37640900d7d2771dbac1c5f55cf30796875a56b6f4ec584918d92614e

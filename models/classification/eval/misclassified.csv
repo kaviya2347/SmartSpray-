@@ -1,0 +1,21 @@
+path,true_label,pred_label,confidence
+early_blight/240300f1-a601-4363-84e8-670af8a124a1___RS_Erly.B 7762.JPG,early_blight,septoria_leaf_spot,0.4311
+early_blight/43e84adf-0897-47dc-97a4-94ef0e83eef5___RS_Erly.B 6399.JPG,early_blight,septoria_leaf_spot,0.7761
+early_blight/52082b15-4350-415a-be8c-bb0e0fc3ab88___RS_Erly.B 6332.JPG,early_blight,septoria_leaf_spot,0.9944
+early_blight/73cf82cf-a099-4243-a7a6-b06c79eedb65___RS_Erly.B 7412.JPG,early_blight,septoria_leaf_spot,0.7150
+early_blight/784f629e-77a3-4d3b-b83c-9ef67b646234___RS_Erly.B 7371.JPG,early_blight,septoria_leaf_spot,0.6154
+early_blight/7a259d3d-cca4-4041-88ec-d3140cd96f25___RS_Erly.B 7415.JPG,early_blight,late_blight,0.6274
+early_blight/90c69e4c-c526-4f72-b0b0-4127fc6acb0a___RS_Erly.B 7782.JPG,early_blight,septoria_leaf_spot,0.8910
+early_blight/9b617d8b-b252-4a29-9af5-10ea563eb785___RS_Erly.B 7707.JPG,early_blight,healthy,0.5532
+early_blight/bde8917a-9b0c-4a7b-8ff1-26f31609d6d7___RS_Erly.B 7750.JPG,early_blight,septoria_leaf_spot,0.4995
+early_blight/c9ff37ca-a310-49ad-8978-0913b3c55f58___RS_Erly.B 7714.JPG,early_blight,septoria_leaf_spot,0.6423
+late_blight/039e5d57-64e2-41de-8ccf-e44598bcedb0___RS_Late.B 6883.JPG,late_blight,early_blight,0.6100
+late_blight/0c47de5b-adbe-479f-8ccf-5b8c530c32f8___RS_Late.B 6312.JPG,late_blight,early_blight,0.7423
+late_blight/0fca6d09-1931-4767-a195-1dd2b7cd10b7___GHLB Leaf 8 Day 12.JPG,late_blight,early_blight,0.3424
+late_blight/1af98b62-adaf-43d0-b4eb-83ab3f1ee084___RS_Late.B 4908.JPG,late_blight,early_blight,0.8011
+late_blight/1c6b66db-9891-41cc-972f-a3521deee072___RS_Late.B 5589.JPG,late_blight,early_blight,0.5750
+late_blight/598065c7-92a5-4497-849f-4707afb0c282___RS_Late.B 5419.JPG,late_blight,early_blight,0.6999
+late_blight/5aac391c-87ed-44cd-84f0-a7bf235003fd___RS_Late.B 4842.JPG,late_blight,early_blight,0.8296
+late_blight/d2892ccc-cc57-49ff-88eb-5aa2ee0f862e___GHLB2 Leaf 74.JPG,late_blight,healthy,0.7335
+late_blight/def832df-c202-4e72-ae0a-0687e62c70ce___RS_Late.B 5071.JPG,late_blight,early_blight,0.6052
+septoria_leaf_spot/51327622-586d-47db-9c80-e1c0289bb0b1___Matt.S_CG 6450.JPG,septoria_leaf_spot,early_blight,0.5007

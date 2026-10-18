@@ -1,0 +1,7 @@
+class,precision,recall,f1_score,support
+early_blight,0.9244,0.9167,0.9205,120
+healthy,0.9896,1.0000,0.9948,190
+late_blight,0.9955,0.9607,0.9778,229
+septoria_leaf_spot,0.9636,0.9953,0.9792,213
+macro avg,0.9683,0.9682,0.9681,752
+weighted avg,0.9736,0.9734,0.9733,752

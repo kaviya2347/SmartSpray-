@@ -1,0 +1,27 @@
+{
+  "dataset": "LeafPest Plant Detection v1 (Roboflow, CC BY 4.0) \u2014 460/57/29 images",
+  "base_weights": "yolov8n.pt",
+  "epochs_trained": 30,
+  "imgsz": 512,
+  "batch": 8,
+  "optimizer": "AdamW",
+  "seed": 42,
+  "selection": "Ultralytics best.pt (validation fitness)",
+  "metrics": {
+    "val": {
+      "mAP50": 0.9520464929564432,
+      "mAP50_95": 0.7481218040352353,
+      "precision": 0.9105180217901341,
+      "recall": 0.9558823529411765
+    },
+    "test": {
+      "mAP50": 0.9254848536491842,
+      "mAP50_95": 0.805229575507763,
+      "precision": 0.9966876562307405,
+      "recall": 0.9117647058823529
+    }
+  },
+  "model_sha256": "8f74a51f6ad5007c8cf69d9c92f6b4ec9e7ecf4da31fddc9adcc8dcc78cfdffb",
+  "created_utc": "2026-09-16T08:00:02.442598+00:00",
+  "note": "Trained on a 2-core CPU at 512 px for 30 epochs (resumed once after a container restart). Retrain on a Mac with --device mps --imgsz 640 --epochs 50 for the notebook's original settings."
+}

@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-09-16T06:13:14.434535+00:00",
+  "previous_model_sha256": "4022beccda7eb18dc6759f8e5ef8d2825dd3ed43f0615721b069e997063c3f2c",
+  "previous_model_backup": "models/classification/best.keras.bak-20260916-061314",
+  "candidate_output_shape": [
+    null,
+    4
+  ],
+  "candidate_probe_sum": 1.0,
+  "verification_passed": true,
+  "new_model_sha256": "499ceca37640900d7d2771dbac1c5f55cf30796875a56b6f4ec584918d92614e",
+  "candidate_sha256": "499ceca37640900d7d2771dbac1c5f55cf30796875a56b6f4ec584918d92614e",
+  "model_path": "models/classification/best.keras",
+  "inference_config": "models/classification/inference_config.json",
+  "class_order": [
+    "early_blight",
+    "healthy",
+    "late_blight",
+    "septoria_leaf_spot"
+  ],
+  "test_accuracy": 0.973404255319149,
+  "macro_f1": 0.968064762083552
+}

@@ -1,0 +1,103 @@
+{
+  "model_version": "efficientnetb0-tomato-disease-v2-701515",
+  "evaluated_model": "models/classification/eval/candidate_best.keras",
+  "evaluated_model_sha256": "499ceca37640900d7d2771dbac1c5f55cf30796875a56b6f4ec584918d92614e",
+  "split_manifest": "models/classification/split_manifest.json",
+  "split_manifest_sha256": "1f463f1c9b77defa1f98e456281d95ea57b098a1b4007147e0eba303596e9b3e",
+  "counts": {
+    "total_unique": 5007,
+    "train": 3504,
+    "validation": 751,
+    "test": 752
+  },
+  "test_loss": 0.05459415540099144,
+  "test_accuracy": 0.973404255319149,
+  "test_accuracy_keras_evaluate": 0.9734042286872864,
+  "macro_f1": 0.968064762083552,
+  "weighted_f1": 0.9733368963126712,
+  "macro_precision": 0.9682661394977572,
+  "macro_recall": 0.9681676302355618,
+  "per_class": {
+    "early_blight": {
+      "precision": 0.9243697478991597,
+      "recall": 0.9166666666666666,
+      "f1": 0.9205020920502092,
+      "support": 120
+    },
+    "healthy": {
+      "precision": 0.9895833333333334,
+      "recall": 1.0,
+      "f1": 0.9947643979057592,
+      "support": 190
+    },
+    "late_blight": {
+      "precision": 0.995475113122172,
+      "recall": 0.9606986899563319,
+      "f1": 0.9777777777777777,
+      "support": 229
+    },
+    "septoria_leaf_spot": {
+      "precision": 0.9636363636363636,
+      "recall": 0.9953051643192489,
+      "f1": 0.9792147806004619,
+      "support": 213
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "early_blight",
+      "healthy",
+      "late_blight",
+      "septoria_leaf_spot"
+    ],
+    "matrix": [
+      [
+        110,
+        1,
+        1,
+        8
+      ],
+      [
+        0,
+        190,
+        0,
+        0
+      ],
+      [
+        8,
+        1,
+        220,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        212
+      ]
+    ]
+  },
+  "total_test_samples": 752,
+  "correct": 732,
+  "incorrect": 20,
+  "production_mode": {
+    "tta_hflip": true,
+    "temperature": 0.9010197026101795,
+    "accuracy": 0.9787234042553191,
+    "nll_raw": 0.05200474336743355,
+    "nll_calibrated": 0.05053884908556938,
+    "ece_raw": 0.014987700044157622,
+    "ece_calibrated": 0.010700414868745435,
+    "uncertainty_threshold": 0.6,
+    "coverage_confident": 0.9867021276595744,
+    "accuracy_on_confident": 0.9865229110512129,
+    "n_flagged_uncertain": 10
+  },
+  "selected_checkpoint": {
+    "phase": "phase3",
+    "epoch": 1,
+    "val_accuracy": 0.9800266027450562,
+    "val_loss": 0.060918111354112625
+  },
+  "evaluated_utc": "2026-09-16T06:12:57.589303+00:00"
+}

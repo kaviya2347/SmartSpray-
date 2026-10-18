@@ -1,0 +1,18 @@
+{
+  "_comment": "Prototype spot-spraying drone parameters used by Modules 7-9. Placeholder values for simulation; replace with the real airframe's specs.",
+  "tank_capacity_ml": 250,
+  "tank_reserve_pct": 5,
+  "cruise_speed_mps": 3.0,
+  "spray_flow_ml_per_s": 5.0,
+  "refill_time_s": 60,
+  "takeoff_land_time_s": 20,
+  "cruise_altitude_m": 2.5,
+  "spray_swath_m": 1.0,
+  "depot_x_m": 0.0,
+  "depot_y_m": 0.0,
+  "origin_lat": 12.8406,
+  "origin_lon": 80.1534,
+  "battery_wh": 90,
+  "cruise_power_w": 180,
+  "hover_power_w": 160
+}

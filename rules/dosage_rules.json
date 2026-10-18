@@ -1,0 +1,45 @@
+{
+  "version": "dosage-rules-v1",
+  "status": "INDICATIVE — engineering defaults for the academic prototype. Validate every product, dose and interval against the product label and a local agronomist before any field use.",
+  "dosage_unit": "mL of prepared spray mix per plant",
+  "blanket_dose_ml_per_plant": 10.0,
+  "uncertainty_threshold": 0.6,
+  "min_retreatment_interval_days": 7,
+  "retreatment_match_radius_m": 0.35,
+  "treatments": {
+    "protectant_fungicide": {
+      "description": "Protectant (contact) fungicide, e.g. chlorothalonil- or mancozeb-class product",
+      "cost_per_litre_mix_inr": 60.0
+    },
+    "late_blight_fungicide": {
+      "description": "Oomycete-targeted fungicide programme for late blight (Phytophthora infestans)",
+      "cost_per_litre_mix_inr": 95.0
+    }
+  },
+  "rules": {
+    "healthy": {
+      "low":    {"action": "no_spray", "dosage_ml": 0, "treatment": null, "reason": "Plant classified healthy."},
+      "medium": {"action": "no_spray", "dosage_ml": 0, "treatment": null, "reason": "Plant classified healthy."},
+      "high":   {"action": "no_spray", "dosage_ml": 0, "treatment": null, "reason": "Plant classified healthy."}
+    },
+    "early_blight": {
+      "low":    {"action": "monitor",  "dosage_ml": 0, "treatment": null, "reason": "Early blight below 20% leaf area — monitor, re-survey before treating."},
+      "medium": {"action": "spray",    "dosage_ml": 5, "treatment": "protectant_fungicide", "reason": "Early blight 20–50% leaf area — standard protectant dose."},
+      "high":   {"action": "spray",    "dosage_ml": 9, "treatment": "protectant_fungicide", "reason": "Early blight above 50% leaf area — high protectant dose."}
+    },
+    "late_blight": {
+      "low":    {"action": "spray", "dosage_ml": 10, "treatment": "late_blight_fungicide", "reason": "Late blight spreads fast — any infection is treated at full dose."},
+      "medium": {"action": "spray", "dosage_ml": 10, "treatment": "late_blight_fungicide", "reason": "Late blight spreads fast — any infection is treated at full dose."},
+      "high":   {"action": "spray", "dosage_ml": 10, "treatment": "late_blight_fungicide", "reason": "Late blight spreads fast — any infection is treated at full dose."}
+    },
+    "septoria_leaf_spot": {
+      "low":    {"action": "monitor", "dosage_ml": 0, "treatment": null, "reason": "Septoria below 20% leaf area — monitor, re-survey before treating."},
+      "medium": {"action": "spray",   "dosage_ml": 6, "treatment": "protectant_fungicide", "reason": "Septoria 20–50% leaf area — medium protectant dose."},
+      "high":   {"action": "spray",   "dosage_ml": 8, "treatment": "protectant_fungicide", "reason": "Septoria above 50% leaf area — high protectant dose."}
+    }
+  },
+  "invalid_severity_policy": {
+    "late_blight": "spray_default",
+    "default": "inspect"
+  }
+}

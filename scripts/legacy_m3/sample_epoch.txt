@@ -1,0 +1,124 @@
+════════════════════════════════════════════════════════════
+Phase 1 — Training head (backbone frozen)
+════════════════════════════════════════════════════════════
+Epoch 1/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 2s/step - accuracy: 0.8124 - loss: 0.4667
+Epoch 1: val_accuracy improved from None to 0.93014, saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+
+Epoch 1: finished saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m247s[0m 2s/step - accuracy: 0.8124 - loss: 0.4667 - val_accuracy: 0.9301 - val_loss: 0.2239 - learning_rate: 0.0010
+Epoch 2/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 984ms/step - accuracy: 0.8994 - loss: 0.2682
+Epoch 2: val_accuracy improved from 0.93014 to 0.93912, saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+
+Epoch 2: finished saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m159s[0m 1s/step - accuracy: 0.8994 - loss: 0.2682 - val_accuracy: 0.9391 - val_loss: 0.1868 - learning_rate: 0.0010
+Epoch 3/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.9205 - loss: 0.2194
+Epoch 3: val_accuracy improved from 0.93912 to 0.94810, saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+
+Epoch 3: finished saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m191s[0m 2s/step - accuracy: 0.9205 - loss: 0.2194 - val_accuracy: 0.9481 - val_loss: 0.1517 - learning_rate: 0.0010
+Epoch 4/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 706ms/step - accuracy: 0.9178 - loss: 0.2186
+Epoch 4: val_accuracy improved from 0.94810 to 0.95309, saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+
+Epoch 4: finished saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m102s[0m 810ms/step - accuracy: 0.9178 - loss: 0.2186 - val_accuracy: 0.9531 - val_loss: 0.1442 - learning_rate: 0.0010
+Epoch 5/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 707ms/step - accuracy: 0.9295 - loss: 0.1775
+Epoch 5: val_accuracy did not improve from 0.95309
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m101s[0m 803ms/step - accuracy: 0.9295 - loss: 0.1775 - val_accuracy: 0.9441 - val_loss: 0.1661 - learning_rate: 0.0010
+Epoch 6/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 702ms/step - accuracy: 0.9429 - loss: 0.1580
+Epoch 6: val_accuracy improved from 0.95309 to 0.95709, saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+
+Epoch 6: finished saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m102s[0m 809ms/step - accuracy: 0.9429 - loss: 0.1580 - val_accuracy: 0.9571 - val_loss: 0.1217 - learning_rate: 0.0010
+Epoch 7/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 709ms/step - accuracy: 0.9367 - loss: 0.1715
+Epoch 7: val_accuracy improved from 0.95709 to 0.95908, saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+
+Epoch 7: finished saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m103s[0m 815ms/step - accuracy: 0.9367 - loss: 0.1715 - val_accuracy: 0.9591 - val_loss: 0.1177 - learning_rate: 0.0010
+Epoch 8/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 699ms/step - accuracy: 0.9472 - loss: 0.1476
+Epoch 8: val_accuracy improved from 0.95908 to 0.97006, saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+
+Epoch 8: finished saving model to D:\RIDDHIMA SINGH\SmartSpray\models\classification\checkpoint_best.keras
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m102s[0m 806ms/step - accuracy: 0.9472 - loss: 0.1476 - val_accuracy: 0.9701 - val_loss: 0.0927 - learning_rate: 0.0010
+Epoch 9/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 709ms/step - accuracy: 0.9554 - loss: 0.1246
+Epoch 9: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m102s[0m 805ms/step - accuracy: 0.9554 - loss: 0.1246 - val_accuracy: 0.9571 - val_loss: 0.1244 - learning_rate: 0.0010
+Epoch 10/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.9557 - loss: 0.1271
+Epoch 10: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m140s[0m 1s/step - accuracy: 0.9557 - loss: 0.1271 - val_accuracy: 0.9611 - val_loss: 0.1047 - learning_rate: 0.0010
+Epoch 11/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 467ms/step - accuracy: 0.9519 - loss: 0.1333
+Epoch 11: val_accuracy did not improve from 0.97006
+
+Epoch 11: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m77s[0m 610ms/step - accuracy: 0.9519 - loss: 0.1333 - val_accuracy: 0.9661 - val_loss: 0.1047 - learning_rate: 0.0010
+Epoch 12/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 631ms/step - accuracy: 0.9601 - loss: 0.1157
+Epoch 12: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m93s[0m 731ms/step - accuracy: 0.9601 - loss: 0.1157 - val_accuracy: 0.9581 - val_loss: 0.1038 - learning_rate: 5.0000e-04
+Epoch 13/20
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 501ms/step - accuracy: 0.9634 - loss: 0.0998
+Epoch 13: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m73s[0m 578ms/step - accuracy: 0.9634 - loss: 0.0998 - val_accuracy: 0.9681 - val_loss: 0.0971 - learning_rate: 5.0000e-04
+Epoch 13: early stopping
+Restoring model weights from the end of the best epoch: 8.
+
+Phase 1 complete. Best val_accuracy: 0.9701
+
+════════════════════════════════════════════════════════════
+Phase 2 — Fine-tuning top 30 backbone layers
+════════════════════════════════════════════════════════════
+Epoch 1/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 520ms/step - accuracy: 0.8635 - loss: 0.3706
+Epoch 1: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m87s[0m 610ms/step - accuracy: 0.8635 - loss: 0.3706 - val_accuracy: 0.9511 - val_loss: 0.1348 - learning_rate: 1.0000e-05
+Epoch 2/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 518ms/step - accuracy: 0.9113 - loss: 0.2389
+Epoch 2: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m75s[0m 594ms/step - accuracy: 0.9113 - loss: 0.2389 - val_accuracy: 0.9541 - val_loss: 0.1437 - learning_rate: 1.0000e-05
+Epoch 3/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 518ms/step - accuracy: 0.9230 - loss: 0.2204
+Epoch 3: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m75s[0m 593ms/step - accuracy: 0.9230 - loss: 0.2204 - val_accuracy: 0.9561 - val_loss: 0.1400 - learning_rate: 1.0000e-05
+Epoch 4/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 519ms/step - accuracy: 0.9297 - loss: 0.1943
+Epoch 4: val_accuracy did not improve from 0.97006
+
+Epoch 4: ReduceLROnPlateau reducing learning rate to 4.999999873689376e-06.
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m75s[0m 593ms/step - accuracy: 0.9297 - loss: 0.1943 - val_accuracy: 0.9581 - val_loss: 0.1352 - learning_rate: 1.0000e-05
+Epoch 5/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 512ms/step - accuracy: 0.9297 - loss: 0.1860
+Epoch 5: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m74s[0m 587ms/step - accuracy: 0.9297 - loss: 0.1860 - val_accuracy: 0.9601 - val_loss: 0.1305 - learning_rate: 5.0000e-06
+Epoch 6/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 745ms/step - accuracy: 0.9362 - loss: 0.1735
+Epoch 6: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m113s[0m 897ms/step - accuracy: 0.9362 - loss: 0.1735 - val_accuracy: 0.9601 - val_loss: 0.1266 - learning_rate: 5.0000e-06
+Epoch 7/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.9372 - loss: 0.1703
+Epoch 7: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m175s[0m 1s/step - accuracy: 0.9372 - loss: 0.1703 - val_accuracy: 0.9611 - val_loss: 0.1231 - learning_rate: 5.0000e-06
+Epoch 8/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.9382 - loss: 0.1710
+Epoch 8: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m175s[0m 1s/step - accuracy: 0.9382 - loss: 0.1710 - val_accuracy: 0.9611 - val_loss: 0.1207 - learning_rate: 5.0000e-06
+Epoch 9/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.9452 - loss: 0.1599
+Epoch 9: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m166s[0m 1s/step - accuracy: 0.9452 - loss: 0.1599 - val_accuracy: 0.9621 - val_loss: 0.1167 - learning_rate: 5.0000e-06
+Epoch 10/10
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.9464 - loss: 0.1548
+Epoch 10: val_accuracy did not improve from 0.97006
+[1m126/126[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m174s[0m 1s/step - accuracy: 0.9464 - loss: 0.1548 - val_accuracy: 0.9651 - val_loss: 0.1134 - learning_rate: 5.0000e-06
+Restoring model weights from the end of the best epoch: 10.
+
+Phase 2 complete. Best val_accuracy: 0.9651

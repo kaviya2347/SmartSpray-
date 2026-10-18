@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UAV Mission Simulator</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="labels"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><path d="M5 9h8M19 9h8M5 23h8M19 23h8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><rect x="11" y="12" width="10" height="8" rx="2" fill="currentColor"/><path d="M16 21v7" stroke="#5cc8ff" stroke-width="1.8" stroke-dasharray="1.5 2"/></svg>
+    </div>
+    <div>
+      <h1>Vision-Guided Autonomous UAV</h1>
+      <p>Plant-level disease detection &amp; variable-rate spraying · mission simulator</p>
+    </div>
+  </div>
+  <ol class="phases" id="phases">
+    <li data-phase="markers"><b>1</b>Place markers</li>
+    <li data-phase="map"><b>2</b>Map field</li>
+    <li data-phase="scan"><b>3</b>Scan plants</li>
+    <li data-phase="plan"><b>4</b>Plan route</li>
+    <li data-phase="spray"><b>5</b>Spray</li>
+    <li data-phase="return"><b>6</b>Return &amp; land</li>
+  </ol>
+  <div class="mode auto" id="mode" title="Press M to switch">AUTO</div>
+</header>
+
+<aside class="panel left">
+  <section class="card">
+    <h2>Mission</h2>
+    <div class="row buttons">
+      <button id="btnStart" class="primary">Start mission</button>
+      <button id="btnPause" disabled>Pause</button>
+    </div>
+    <div class="row">
+      <span class="lbl">Sim speed</span>
+      <div class="seg" id="speed">
+        <button data-v="1">1×</button><button data-v="2" class="on">2×</button><button data-v="4">4×</button><button data-v="8">8×</button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="lbl">Camera</span>
+      <div class="seg" id="cams">
+        <button data-v="auto" class="on" title="Changes with the mission phase">Auto</button><button data-v="follow" title="1">Follow</button><button data-v="top" title="2">Top</button><button data-v="orbit" title="3">Orbit</button><button data-v="fpv" title="4">FPV</button>
+      </div>
+    </div>
+    <label class="check"><input type="checkbox" id="optGradcam" checked> Explain each decision (Grad-CAM)</label>
+    <label class="check"><input type="checkbox" id="optLabels" checked> Show labels in 3D</label>
+  </section>
+
+  <section class="card">
+    <h2>Telemetry</h2>
+    <div class="tele">
+      <div><span>Phase</span><b id="tPhase">Pre-flight</b></div>
+      <div><span>Flight time</span><b id="tTime">0:00</b></div>
+      <div><span>Altitude</span><b id="tAlt">0.0 m</b></div>
+      <div><span>Speed</span><b id="tSpd">0.0 m/s</b></div>
+      <div><span>Position</span><b id="tPos">—</b></div>
+      <div><span>Distance</span><b id="tDist">0 m</b></div>
+    </div>
+    <div class="meter"><span>Battery</span><div class="bar"><i id="mBatt" style="width:100%"></i></div><b id="tBatt">100%</b></div>
+    <div class="meter"><span>Tank</span><div class="bar tank"><i id="mTank" style="width:0%"></i></div><b id="tTank">0 mL</b></div>
+    <div class="tankmix" id="tMix">empty</div>
+    <div class="tele small">
+      <div><span>Markers</span><b id="tMarkers">0 / 4</b></div>
+      <div><span>Plants found</span><b id="tFound">—</b></div>
+      <div><span>Photographed</span><b id="tShot">—</b></div>
+      <div><span>Sprayed</span><b id="tSprayed">—</b></div>
+    </div>
+  </section>
+
+  <section class="card legend">
+    <h2>Plant status</h2>
+    <ul>
+      <li><i class="dot pending"></i>Located, not yet photographed</li>
+      <li><i class="dot healthy"></i>Healthy — no spray</li>
+      <li><i class="dot monitor"></i>Mild — monitor, no spray</li>
+      <li><i class="dot spray"></i>Spray target (protectant)</li>
+      <li><i class="dot lb"></i>Spray target (late-blight fungicide)</li>
+      <li><i class="dot inspect"></i>Unsure — manual inspection</li>
+      <li><i class="dot done"></i>Sprayed</li>
+    </ul>
+  </section>
+</aside>
+
+<aside class="panel right">
+  <section class="card cam">
+    <h2><span id="camTitle">Drone camera · live</span><span class="rec">●</span></h2>
+    <div id="camview" class="camview"><img id="camStill" alt="" hidden></div>
+  </section>
+  <section class="card capture" id="capture">
+    <h2>Model result <span class="sub" id="capIdx"></span></h2>
+    <div class="cap-empty" id="capEmpty">Each plant photo the drone takes is classified here: disease, confidence, severity and the spray decision.</div>
+    <div class="cap-body" id="capBody" hidden>
+      <div class="cap-photo">
+        <img id="capImg" alt="plant photo">
+        <button id="capToggle" class="mini" title="Switch photo / Grad-CAM">Grad-CAM</button>
+      </div>
+      <div class="cap-info">
+        <div class="cap-label" id="capLabel">—</div>
+        <div class="conf"><div class="bar"><i id="capConfBar"></i></div><b id="capConf">—</b></div>
+        <div class="probs" id="capProbs"></div>
+        <div class="sev">Severity <b id="capSev">—</b></div>
+      </div>
+      <div class="decision" id="capDecision"><span class="pill" id="capAction">—</span><span id="capDose"></span></div>
+      <p class="reason" id="capReason"></p>
+    </div>
+    <div class="strip" id="strip"></div>
+  </section>
+</aside>
+
+<section class="panel bottom">
+  <div class="log" id="log"></div>
+  <canvas id="minimap" width="440" height="330" aria-label="Field map"></canvas>
+</section>
+
+<div class="keys" id="keys">
+  <b>Pilot keys</b>
+  <em class="only-compact">Pilot override: press <kbd>M</kbd> to take control · <kbd>H</kbd> return home</em>
+  <span><kbd>M</kbd> manual / auto</span>
+  <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> fly</span>
+  <span><kbd>Q</kbd><kbd>E</kbd> turn</span>
+  <span><kbd>R</kbd><kbd>F</kbd> up / down</span>
+  <span><kbd>Space</kbd> spray</span>
+  <span><kbd>Shift</kbd> fast</span>
+  <span><kbd>H</kbd> return home</span>
+  <span><kbd>P</kbd> pause</span>
+  <span><kbd>1</kbd>–<kbd>4</kbd> camera</span>
+</div>
+
+<div id="caption" class="caption" hidden><b id="capStep"></b><span id="capText"></span></div>
+<div id="banner" class="banner" hidden>
+  <b>MANUAL CONTROL</b><span>Pilot is flying. Press <kbd>M</kbd> to hand back to the autopilot — it re-plans the shortest route from here.</span>
+</div>
+<div id="toasts"></div>
+
+<div id="briefing" class="modal">
+  <div class="sheet">
+    <h2>Mission briefing</h2>
+    <p class="lead">A survey-and-spray drone treats a tomato field plant by plant. Watch it work on its own, or press <kbd>M</kbd> at any time to fly it yourself; press <kbd>M</kbd> again and the autopilot re-plans from where you left it.</p>
+    <ol class="steps">
+      <li><b>Place markers.</b> The drone flies to each corner the operator marked and drops an ArUco marker.</li>
+      <li><b>Map the field.</b> From 15 m it photographs the whole field, reads the four markers to fix the boundary and size, and finds every plant.</li>
+      <li><b>Scan plants.</b> Flying low, it photographs each plant. Every photo goes to the disease model (EfficientNetB0), then severity and the dosage rules.</li>
+      <li><b>Plan route.</b> Healthy and mild plants are skipped. It works out the shortest route over the plants that need spray, split into tank loads.</li>
+      <li><b>Spray.</b> It flies the route and sprays each target with its own dose.</li>
+      <li><b>Return &amp; land.</b> Flight log and savings report.</li>
+    </ol>
+    <div class="field-pick">
+      <span class="lbl">Field</span>
+      <label><input type="radio" name="field" value="small:7" checked> Field A · 63 plants (demo layout)</label>
+      <label><input type="radio" name="field" value="small:random"> Field B · 63 plants, random disease patches</label>
+      <label><input type="radio" name="field" value="medium:random"> Field C · 117 plants, random disease patches</label>
+    </div>
+    <p class="note">Synthetic field: every plant is a real PlantVillage test photo the model never saw in training. The drone and its sensors are simulated; the detection, disease model, severity, rules and route planner are the real SmartSpray modules.</p>
+    <div class="row buttons end">
+      <span id="backend" class="backend">Checking backend…</span>
+      <button id="btnBrief" class="primary" disabled>Prepare mission</button>
+    </div>
+  </div>
+</div>
+
+<div id="summary" class="modal" hidden>
+  <div class="sheet wide">
+    <h2>Mission complete</h2>
+    <div id="sumBody"></div>
+    <div class="row buttons end">
+      <button id="btnAgain">Fly this field again</button>
+      <button id="btnNew" class="primary">New field</button>
+      <button id="btnClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

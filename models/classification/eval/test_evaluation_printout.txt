@@ -1,0 +1,41 @@
+
+Total images:            5007  (raw files 5016, 9 exact duplicates removed)
+Training:                3504
+Validation:              751
+Test:                    752
+
+Test Loss:               0.0546
+Test Accuracy:           0.9734  (97.34%)
+
+Classification Report:
+                    precision    recall  f1-score   support
+
+      early_blight     0.9244    0.9167    0.9205       120
+           healthy     0.9896    1.0000    0.9948       190
+       late_blight     0.9955    0.9607    0.9778       229
+septoria_leaf_spot     0.9636    0.9953    0.9792       213
+
+          accuracy                         0.9734       752
+         macro avg     0.9683    0.9682    0.9681       752
+      weighted avg     0.9736    0.9734    0.9733       752
+
+Macro F1:                0.9681
+Weighted F1:             0.9733
+
+Confusion Matrix (rows = true, cols = predicted):
+                        early_blight       healthy   late_blight  septoria_lea
+early_blight                     110             1             1             8
+healthy                            0           190             0             0
+late_blight                        8             1           220             0
+septoria_leaf_spot                 1             0             0           212
+
+Total test samples:      752
+Correct predictions:     732
+Incorrect predictions:   20
+
+Production inference mode (chosen on validation): TTA=True, temperature=0.9010
+   accuracy                         : 0.9787
+   ECE raw -> calibrated            : 0.0150 -> 0.0107
+   plants with conf >= 0.60        : 742/752 (98.7%)
+   accuracy on confident plants     : 0.9865
+   flagged uncertain                : 10 (of which wrong: 6)

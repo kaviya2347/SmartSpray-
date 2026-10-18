@@ -1,0 +1,149 @@
+{
+  "created_utc": "2026-09-16T05:04:06.577209+00:00",
+  "dataset_root": "data/datasets/plantvillage_tomato",
+  "dataset_source": "PlantVillage (tomato subset: early_blight, healthy, late_blight, septoria_leaf_spot)",
+  "class_order": [
+    "early_blight",
+    "healthy",
+    "late_blight",
+    "septoria_leaf_spot"
+  ],
+  "random_seed": 42,
+  "split_method": "sklearn.model_selection.train_test_split called twice, stratify=labels, random_state=RANDOM_SEED: (1) 70% train vs 30% holdout; (2) holdout 50/50 -> validation/test",
+  "fractions": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "raw_file_counts": {
+    "early_blight": 800,
+    "healthy": 1273,
+    "late_blight": 1526,
+    "septoria_leaf_spot": 1417
+  },
+  "raw_file_total": 5016,
+  "unique_images": 5007,
+  "split_counts": {
+    "train": {
+      "early_blight": 560,
+      "healthy": 888,
+      "late_blight": 1064,
+      "septoria_leaf_spot": 992
+    },
+    "validation": {
+      "early_blight": 120,
+      "healthy": 191,
+      "late_blight": 228,
+      "septoria_leaf_spot": 212
+    },
+    "test": {
+      "early_blight": 120,
+      "healthy": 190,
+      "late_blight": 229,
+      "septoria_leaf_spot": 213
+    }
+  },
+  "split_totals": {
+    "train": 3504,
+    "validation": 751,
+    "test": 752
+  },
+  "leakage_checks": {
+    "path_overlap_train_validation": 0,
+    "hash_overlap_train_validation": 0,
+    "path_overlap_train_test": 0,
+    "hash_overlap_train_test": 0,
+    "path_overlap_validation_test": 0,
+    "hash_overlap_validation_test": 0,
+    "every_unique_image_in_exactly_one_split": true,
+    "dropped_duplicates_absent_from_splits": true
+  },
+  "excluded": {
+    "exact_duplicates": [
+      {
+        "path": "healthy/cfd491d6-4af5-4728-8f0e-0d330a07174a___GH_HL Leaf 482.2.JPG",
+        "label": "healthy",
+        "label_index": 1,
+        "sha256": "61f6fa6195ef5c59c4918a292c641d4cd3d2d31ff051dcd0f36a625daf93f5ef",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "healthy/1af0bfe1-4bcf-4b8b-be66-5d0953eb647e___GH_HL Leaf 482.2.JPG"
+      },
+      {
+        "path": "healthy/505465db-407b-4e0a-8110-7479dad5261c___GH_HL Leaf 389.JPG",
+        "label": "healthy",
+        "label_index": 1,
+        "sha256": "addddf5cb2a74192c9836be70fc223659062675eb325d55429c341a0c44937d0",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "healthy/37203047-d8ba-43f7-b31e-d496c41c569c___GH_HL Leaf 389.JPG"
+      },
+      {
+        "path": "healthy/e786ac89-29fe-47e3-b49e-b9a9ee7edd9d___GH_HL Leaf 342.1.JPG",
+        "label": "healthy",
+        "label_index": 1,
+        "sha256": "68cda8c3ceca7626cc6727e14186d356b10d1e345eb16e425ef82f21a30258ed",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "healthy/37aad83b-7ff8-4b35-b3ed-fb8e0f54910b___GH_HL Leaf 342.1.JPG"
+      },
+      {
+        "path": "healthy/d2ce7896-6fa4-45e6-96c5-d162da0e3e1c___GH_HL Leaf 220.JPG",
+        "label": "healthy",
+        "label_index": 1,
+        "sha256": "32e9ffabaa054c19ae8df95e94fbd7a25105defdea1214eb5f8bd804ea9a7428",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "healthy/9662364c-aaba-45e3-b907-10792d60578c___GH_HL Leaf 220.JPG"
+      },
+      {
+        "path": "late_blight/2c47b891-3c97-48f1-a2cc-5aa53d3a1148___GHLB2 Leaf 9011.JPG",
+        "label": "late_blight",
+        "label_index": 2,
+        "sha256": "7ff8410db407008bb9aecf0cc5505f2b47ffd89e508413a30ea983b4bc169714",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "late_blight/1a69b38b-c4eb-42c4-9584-bcb14fb8db0c___GHLB2 Leaf 9011.JPG"
+      },
+      {
+        "path": "late_blight/5de6da85-f8c4-48c4-b463-3e6bd78884cc___GHLB_PS Leaf 24 Day 16.jpg",
+        "label": "late_blight",
+        "label_index": 2,
+        "sha256": "4913a3835e692530e507d542caccacc0d0a7b2fd708782cdec6236a1a0dbbcd6",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "late_blight/3fae9c64-18f0-4a67-9f97-554248bb1bed___GHLB_PS Leaf 24 Day 16.jpg"
+      },
+      {
+        "path": "late_blight/bd4f09bd-ee85-4ab1-bce0-8cde3fdd7f1b___GHLB_PS Leaf 23.7 Day 13.jpg",
+        "label": "late_blight",
+        "label_index": 2,
+        "sha256": "375eee7b5da77c7afdd73d089574bee3148d04cbe266ee070ee4774d26aca750",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "late_blight/48c55974-9fe9-4f4b-94f7-c8cd127d1e05___GHLB_PS Leaf 23.7 Day 13.jpg"
+      },
+      {
+        "path": "late_blight/e5d707cd-077c-43af-bda9-6138e516ff51___GHLB2 Leaf 8999.JPG",
+        "label": "late_blight",
+        "label_index": 2,
+        "sha256": "2aeb7479e975df37dfb54aa7b403f57f2ad90b018c37809e572a2a932f55d2a7",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "late_blight/5f21282c-e2ef-4c4a-ace1-b5701fe7effc___GHLB2 Leaf 8999.JPG"
+      },
+      {
+        "path": "late_blight/d82b634e-9a19-497b-b698-aaf100d622a1___GHLB_PS Leaf 24 Day 13.jpg",
+        "label": "late_blight",
+        "label_index": 2,
+        "sha256": "3a60a7b6f3a287981d21dca37f27e5480cc46d1144688d435e53db7a47b7006f",
+        "height": 256,
+        "width": 256,
+        "duplicate_of": "late_blight/861d8b00-57a4-46b0-b51a-09d102dbe119___GHLB_PS Leaf 24 Day 13.jpg"
+      }
+    ],
+    "unreadable": [],
+    "label_conflicts": [],
+    "non_image_files": []
+  }
+}

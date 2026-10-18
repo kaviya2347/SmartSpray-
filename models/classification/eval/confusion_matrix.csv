@@ -1,0 +1,5 @@
+true\pred,early_blight,healthy,late_blight,septoria_leaf_spot
+early_blight,110,1,1,8
+healthy,0,190,0,0
+late_blight,8,1,220,0
+septoria_leaf_spot,1,0,0,212

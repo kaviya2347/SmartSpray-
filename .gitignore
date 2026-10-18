@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# Python caches
+.mypy_cache/
+.coverage
+htmlcov/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local database (optional)
+database/*.db
+
+# Ultralytics outputs
+runs/
+notebooks/runs/
+
+# Trained model weights (optional if you don't want to version them)
+models/yolov8_plant_detector/best.pt
+models/yolov8_plant_detector/runs/
+
+# Dataset
+data/datasets/
+
+# Survey images (if they're large or private)
+data/images/
+
+evaluation/
+
+# Pipeline outputs (reports, Grad-CAM, mission files) — regenerate with scripts/run_demo.py
+data/outputs/
+
+# Module 3 training checkpoints (the selected model is models/classification/best.keras)
+models/classification/eval/checkpoints/
+models/classification/eval/candidate_best.keras
+
+# Temporary transfer archives
+data/datasets/_transfer_*
+# simulated missions (python scripts/clean_simulations.py)
+data/images/sim_*/
+
+# Base YOLO weights auto-downloaded by Ultralytics
+yolov8n.pt
+notebooks/*.pt
+# ImageNet backbone (downloaded automatically by Keras)
+models/pretrained/*.h5
+# Model backups and superseded checkpoints
+*.bak-*
+models/classification/legacy/

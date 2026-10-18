@@ -1,0 +1,14 @@
+{
+  "model_version": "efficientnetb0-tomato-disease-v2-701515",
+  "class_order": [
+    "early_blight",
+    "healthy",
+    "late_blight",
+    "septoria_leaf_spot"
+  ],
+  "image_size": 224,
+  "input": "RGB uint8 0-255, resized with cv2.resize (bilinear); EfficientNet preprocess_input is a pass-through",
+  "temperature": 0.9010197026101795,
+  "tta_hflip": true,
+  "uncertainty_threshold": 0.6
+}

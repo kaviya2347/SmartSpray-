@@ -1,0 +1,29 @@
+# SmartSpray — Python 3.10–3.12 (tested with Python 3.11, TensorFlow 2.21, Keras 3.15)
+# macOS Apple Silicon: `pip install -r requirements.txt` works as-is.
+#   Optional GPU on Mac: pip install tensorflow-metal   (then --device mps for YOLO)
+
+# API
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pydantic>=2.7
+httpx>=0.27
+
+# Core numeric / vision
+numpy>=1.26,<3
+opencv-python>=4.8          # includes cv2.aruco (ArucoDetector API)
+scipy>=1.11
+pandas>=2.1
+matplotlib>=3.8
+
+# Module 3 — disease classification (model saved with Keras 3.15)
+tensorflow>=2.20
+scikit-learn>=1.4
+
+# Module 2 — plant detection (YOLOv8)
+ultralytics>=8.2
+
+# Dashboard
+streamlit>=1.50
+
+# Tests
+pytest>=8.2
