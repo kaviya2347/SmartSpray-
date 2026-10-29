@@ -288,7 +288,7 @@ docs/                  WHY_SMARTSPRAY.md, MODULE3_REPORT.md, SIMULATOR.md, modul
 tests/                 pytest suite
 ```
 
-## 9. Honest limitations
+## 9. Limitations
 
 - The classifier was trained on PlantVillage leaf photos taken against plain
   backgrounds. On real greenhouse photos it over-predicts disease, and
